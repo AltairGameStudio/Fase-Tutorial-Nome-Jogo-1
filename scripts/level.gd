@@ -10,7 +10,7 @@ extends Node2D
 # Configurações do gap
 @export var gap_size: float = 120.0 
 @export var min_y: float = 50.0 
-@export var max_y: float = 250.0 
+@export var max_y: float = 650.0 
 
 # Altura do obstáculo
 @export var pipe_height: float = 320.0 

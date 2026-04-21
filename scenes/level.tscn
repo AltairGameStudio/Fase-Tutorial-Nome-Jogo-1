@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://rgntb7o7ox3t" path="res://scripts/level.gd" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://6lu0xqkjadmp" path="res://scenes/obstacle.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://cbe63r51ddvsp" path="res://scenes/finish_line.tscn" id="3_w8frs"]
 
 [node name="Level" type="Node2D" unique_id=1308213871]
 script = ExtResource("1_2q6dc")
 obstacle_scene = ExtResource("2_w7c3h")
+spacing_x = 400.0
 gap_size = 180.0
 pipe_height = 600.0
+
+[node name="FinishLine" parent="." unique_id=2025722038 instance=ExtResource("3_w8frs")]
+position = Vector2(4200, 0)
