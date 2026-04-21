@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bxnehywecx5r3"]
+
+[ext_resource type="Script" uid="uid://rgntb7o7ox3t" path="res://scripts/level.gd" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://6lu0xqkjadmp" path="res://scenes/obstacle.tscn" id="2_w7c3h"]
+
+[node name="Level" type="Node2D" unique_id=1308213871]
+script = ExtResource("1_2q6dc")
+obstacle_scene = ExtResource("2_w7c3h")
