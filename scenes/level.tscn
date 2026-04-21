@@ -6,3 +6,5 @@
 [node name="Level" type="Node2D" unique_id=1308213871]
 script = ExtResource("1_2q6dc")
 obstacle_scene = ExtResource("2_w7c3h")
+gap_size = 180.0
+pipe_height = 600.0

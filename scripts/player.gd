@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const JUMP_VELOCITY = -300.0
 
-@export var max_jumps: int = 10
+@export var max_jumps: int = 25
 var jumps_left: int
 
 # Sinal para notificar a UI quando a quantidade de pulos mudar
