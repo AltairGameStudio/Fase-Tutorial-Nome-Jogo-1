@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c6n62tee13iu8"]
+
+[ext_resource type="Script" uid="uid://dva4kaj75sudo" path="res://scripts/ui.gd" id="1_nt7q6"]
+
+[node name="UI" type="CanvasLayer" unique_id=402088025]
+script = ExtResource("1_nt7q6")
+
+[node name="JumpCounter" type="Label" parent="." unique_id=1455325873]
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 75.0
+offset_bottom = 37.0
+text = "Pulos: 0"
