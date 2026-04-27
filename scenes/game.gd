@@ -13,3 +13,16 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	camera.position.x = player.position.x
+
+func die ():
+	get_tree().reload_current_scene()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		die()
+
+
+func _on_ground_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		print("Galinha bateu no chão!")
+		die()

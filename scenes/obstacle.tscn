@@ -4,18 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://ostxugskl5p3" path="res://icon.svg" id="2_drdry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ukg5"]
-size = Vector2(100, 600)
+size = Vector2(111.75, 454.25)
 
 [node name="Obstacle" type="Area2D" unique_id=1275572114]
 script = ExtResource("1_7ukg5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1974958074]
+position = Vector2(59.125, 234.875)
 shape = SubResource("RectangleShape2D_7ukg5")
 debug_color = Color(1, 0.02823884, 0.034919243, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2021750560]
-position = Vector2(0, 0.9999924)
-scale = Vector2(0.78125, 4.71875)
+position = Vector2(4.9999995, 2.9999695)
+scale = Vector2(0.846, 3.6)
 texture = ExtResource("2_drdry")
+centered = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

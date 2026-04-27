@@ -7,6 +7,11 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+
 [node name="game" type="Node2D" unique_id=2072940893]
 script = ExtResource("1_yqjtg")
 
@@ -27,3 +32,18 @@ shape = SubResource("WorldBoundaryShape2D_uwrxv")
 [node name="UI" parent="." unique_id=402088025 instance=ExtResource("3_lnu2h")]
 
 [node name="Level" parent="." unique_id=1308213871 instance=ExtResource("5_iywne")]
+
+[node name="Ceiling Area" type="Area2D" parent="." unique_id=1086905917]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling Area" unique_id=1533692903]
+position = Vector2(-2.25, -323.25)
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="Ground Area" type="Area2D" parent="." unique_id=898355421]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground Area" unique_id=757194907]
+position = Vector2(0.25, 313.5)
+shape = SubResource("WorldBoundaryShape2D_iywne")
+
+[connection signal="body_entered" from="Ceiling Area" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Ground Area" to="." method="_on_ground_area_body_entered"]
