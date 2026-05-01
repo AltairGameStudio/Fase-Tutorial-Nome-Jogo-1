@@ -55,3 +55,17 @@ frame_progress = 0.4733148
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=605708099]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_u5sy4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2145183591]
+
+[node name="RageBarProgress" type="ProgressBar" parent="CanvasLayer" unique_id=1120024248]
+offset_left = 37.0
+offset_top = 15.0
+offset_right = 240.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.74869895, 0.2015599, 0.25128156, 1)
+
+[node name="RageTimer" type="Timer" parent="." unique_id=795837553]
+one_shot = true
+
+[connection signal="timeout" from="RageTimer" to="." method="_on_rage_timer_timeout"]
