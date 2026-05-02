@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://gs3fjceg6cgb"]
+
+[ext_resource type="Texture2D" uid="uid://dqs5p2cd8dfv5" path="res://assets/Basic_GUI_Bundle/ButtonsIcons/IconButton_Large_Blue_Rounded.png" id="1_i0sit"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8246"]
+font_size = 200
+
+[node name="Button" type="Button" unique_id=847889989]
+offset_right = 365.0
+offset_bottom = 365.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("1_i0sit")
+flat = true
+
+[node name="Label" type="Label" parent="." unique_id=1669524306]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "1"
+label_settings = SubResource("LabelSettings_o8246")
+horizontal_alignment = 1

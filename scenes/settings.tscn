@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://fpykbe5bwlco"]
+
+[ext_resource type="Texture2D" uid="uid://d1s22w41xdwt0" path="res://assets/Basic_GUI_Bundle/BoxesBanners/Box_Orange_Rounded.png" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://br7tmx6xsn4nf" path="res://scripts/settings.gd" id="1_uhhto"]
+[ext_resource type="Texture2D" uid="uid://cqgibvdwa6jyt" path="res://assets/Basic_GUI_Bundle/Icons/SVG/Icon_Large_MusicOff_Blank.svg" id="3_1g033"]
+[ext_resource type="Texture2D" uid="uid://cxhkw3xxl2sxx" path="res://assets/Basic_GUI_Bundle/Icons/SVG/Icon_Large_Music_Blank.svg" id="4_01roj"]
+[ext_resource type="Texture2D" uid="uid://bkt8g0iciqi0p" path="res://assets/Basic_GUI_Bundle/Sliders/ScrollSlider_Blank_Arrow.png" id="4_am25x"]
+[ext_resource type="Texture2D" uid="uid://boe7dlg5bqsfk" path="res://assets/Basic_GUI_Bundle/Sliders/ScrollBar_Orange_Base.png" id="5_am25x"]
+[ext_resource type="Texture2D" uid="uid://6doshvd3a8p5" path="res://assets/Basic_GUI_Bundle/Sliders/ScrollBar_Orange_Scroller.png" id="6_4ppmf"]
+[ext_resource type="Texture2D" uid="uid://ebeiqmvycpn3" path="res://assets/Basic_GUI_Bundle/BoxesBanners/Banner_Orange.png" id="7_1g033"]
+[ext_resource type="Texture2D" uid="uid://d0itwa480cr62" path="res://assets/Basic_GUI_Bundle/Icons/SVG/Icon_Large_Audio_Blank.svg" id="8_wqwn7"]
+[ext_resource type="Texture2D" uid="uid://chk6qq1mbd8se" path="res://assets/Basic_GUI_Bundle/Icons/SVG/Icon_Large_AudioOff_Blank.svg" id="9_oe2nd"]
+[ext_resource type="Texture2D" uid="uid://chcxf4wi8hj63" path="res://assets/Basic_GUI_Bundle/Icons/SVG/Icon_Small_Blank_Return.svg" id="10_7kvyq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhhto"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 750.0
+content_margin_bottom = 50.0
+texture = ExtResource("5_am25x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1g033"]
+texture = ExtResource("6_4ppmf")
+expand_margin_right = 50.0
+
+[node name="Settings" type="Control" unique_id=1042650963]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhhto")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=1132218761]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = -440.0
+offset_right = 1048.0
+offset_bottom = 1070.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_5p8wc")
+
+[node name="Titulo" type="TextureRect" parent="Fundo" unique_id=1521838310]
+layout_mode = 0
+offset_left = 291.66666
+offset_top = -174.99998
+offset_right = 1430.6666
+offset_bottom = 282.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_1g033")
+
+[node name="Label" type="Label" parent="Fundo/Titulo" unique_id=347841774]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 76.0
+offset_right = 849.0
+offset_bottom = 489.0
+theme_override_font_sizes/font_size = 150
+text = "Opções
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Fundo" unique_id=389927474]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -521.5
+offset_top = -245.5
+offset_right = 521.5
+offset_bottom = 245.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Fundo/VBoxContainer" unique_id=4116615]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="Fundo/VBoxContainer/HBoxContainer" unique_id=2032984718]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="MusicaOff" type="TextureButton" parent="Fundo/VBoxContainer/HBoxContainer/Control" unique_id=263132888]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 243.0
+offset_bottom = 248.0
+toggle_mode = true
+texture_normal = ExtResource("4_01roj")
+texture_pressed = ExtResource("3_1g033")
+
+[node name="Musica" type="HSlider" parent="Fundo/VBoxContainer/HBoxContainer" unique_id=161400460]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = ExtResource("4_am25x")
+theme_override_icons/grabber_highlight = ExtResource("4_am25x")
+theme_override_icons/grabber_disabled = ExtResource("4_am25x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_uhhto")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_1g033")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_1g033")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Fundo/VBoxContainer" unique_id=1811025428]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="Fundo/VBoxContainer/HBoxContainer2" unique_id=1358681714]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="VolumeOff" type="TextureButton" parent="Fundo/VBoxContainer/HBoxContainer2/Control" unique_id=884031276]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 229.0
+offset_bottom = 273.0
+toggle_mode = true
+texture_normal = ExtResource("8_wqwn7")
+texture_pressed = ExtResource("9_oe2nd")
+
+[node name="Volume" type="HSlider" parent="Fundo/VBoxContainer/HBoxContainer2" unique_id=520608850]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = ExtResource("4_am25x")
+theme_override_icons/grabber_highlight = ExtResource("4_am25x")
+theme_override_icons/grabber_disabled = ExtResource("4_am25x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_uhhto")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_1g033")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_1g033")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Control" type="Control" parent="Fundo" unique_id=884733693]
+custom_minimum_size = Vector2(250, 250)
+anchors_preset = 0
+offset_left = 1026.6666
+offset_top = 1118.3333
+offset_right = 1276.6666
+offset_bottom = 1368.3333
+
+[node name="back" type="TouchScreenButton" parent="Fundo/Control" unique_id=1508868680]
+position = Vector2(131.66666, 86.666664)
+texture_normal = ExtResource("10_7kvyq")
+
+[connection signal="toggled" from="Fundo/VBoxContainer/HBoxContainer/Control/MusicaOff" to="." method="_on_musica_off_toggled"]
+[connection signal="value_changed" from="Fundo/VBoxContainer/HBoxContainer/Musica" to="." method="_on_volume_musica_slider_value_changed"]
+[connection signal="toggled" from="Fundo/VBoxContainer/HBoxContainer2/Control/VolumeOff" to="." method="_on_volume_off_toggled"]
+[connection signal="value_changed" from="Fundo/VBoxContainer/HBoxContainer2/Volume" to="." method="_on_volume_geral_slider_value_changed"]

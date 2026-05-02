@@ -1,5 +1,9 @@
 extends Node2D
 
+# --- SINAIS NECESSÁRIOS PARA O MAIN ---
+signal player_death
+signal level_completed
+
 @export var obstacle_scene: PackedScene 
 
 # Parâmetros da geração procedural
@@ -11,14 +15,12 @@ extends Node2D
 @export var gap_size: float = 200.0 
 @export var min_y: float = -100.0
 @export var max_y: float = 130.0
-@export var max_variation: float = 380.0 # Diferença máxima de altura entre um cano e o seguinte
-var last_gap_center: float = 350.0 # Altura inicial
+@export var max_variation: float = 380.0 
+var last_gap_center: float = 350.0 
 
-# Altura do obstáculo
 @export var pipe_height: float = 320.0 
 
 func _ready() -> void:
-	# Inicializa a semente aleatória para resultados diferentes a cada jogada
 	randomize() 
 	generate_level()
 
@@ -28,39 +30,56 @@ func generate_level() -> void:
 		return
 
 	for i in range(num_obstacles):
-		# Calcula a posição horizontal (X) deste par de canos
 		var current_x = start_x + (i * spacing_x)
 		
-		# Intervalo seguro baseado no cano anterior
 		var safe_min = last_gap_center - max_variation
 		var safe_max = last_gap_center + max_variation
 		
-		# Garante que o intervalo não ultrapasse os limites
 		var final_min = clamp(safe_min, min_y, max_y)
 		var final_max = clamp(safe_max, min_y, max_y)
 		
-		# Sorteia a nova altura dentro desse intervalo
 		var gap_center_y = randf_range(final_min, final_max)
-		
-		# Atualiza a variável 
 		last_gap_center = gap_center_y
-		print("Cano gerado na altura: ", gap_center_y)    
 		
 		# --- CANO DE CIMA ---
 		var top_pipe = obstacle_scene.instantiate()
 		add_child(top_pipe)
-		
-		# Posiciona o cano de cima
-		# Subimos a partir do centro do gap (metade do gap + metade do cano)
 		top_pipe.position = Vector2(current_x, gap_center_y - (gap_size / 2.0))
-		
-		# Inverte o cano de cima verticalmente
 		top_pipe.scale.y = -1 
+		
+		# Conecta o sinal de colisão do cano (assumindo que o cano tem um sinal "body_entered")
+		# Substitua "body_entered" pelo nome do sinal real que o seu obstáculo emite se for diferente
+		if top_pipe.has_signal("body_entered"):
+			top_pipe.body_entered.connect(_on_obstacle_body_entered)
 		
 		# --- CANO DE BAIXO ---
 		var bottom_pipe = obstacle_scene.instantiate()
 		add_child(bottom_pipe)
-		
-		# Posiciona o cano de baixo
-		# Descemos a partir do centro do gap, metade do vão
 		bottom_pipe.position = Vector2(current_x, gap_center_y + (gap_size / 2.0))
+		
+		# Conecta o sinal de colisão do cano de baixo também
+		if bottom_pipe.has_signal("body_entered"):
+			bottom_pipe.body_entered.connect(_on_obstacle_body_entered)
+
+
+# --- FUNÇÕES DE DETECÇÃO DE MORTE ---
+
+# 1. Quando o jogador bate em um cano instanciado
+func _on_obstacle_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		player_death.emit() # Avisa o Main para dar Game Over
+
+# 2. Quando o jogador bate no chão (Você precisa ter um Area2D chamado "GroundArea" na sua cena do Level)
+func _on_ground_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		print("Galinha bateu no chão!")
+		player_death.emit() # Avisa o Main para dar Game Over
+
+func _on_ceiling_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		player_death.emit() # Avisa o Main para dar Game Over
+
+func _on_finish_line_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		print("Fase concluída!")
+		level_completed.emit() # Avisa o Main para passar de fase

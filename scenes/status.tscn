@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c6n62tee13iu8"]
+
+[ext_resource type="Script" uid="uid://dva4kaj75sudo" path="res://scripts/status.gd" id="1_nt7q6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_puj0d"]
+font_size = 50
+
+[node name="Status" type="CanvasLayer" unique_id=402088025]
+script = ExtResource("1_nt7q6")
+
+[node name="JumpCounter" type="Label" parent="." unique_id=1455325873]
+offset_left = 36.0
+offset_top = 48.0
+offset_right = 96.0
+offset_bottom = 71.0
+text = "Pulos: 0"
+label_settings = SubResource("LabelSettings_puj0d")

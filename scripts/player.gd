@@ -16,6 +16,8 @@ var is_raging = false
 # Sinal para notificar a UI quando a quantidade de pulos mudar
 signal jumps_changed(current_jumps)
 signal out_of_jumps()
+signal fury_started
+signal fury_ended
 
 func _ready() -> void:
 	# Inicializa os pulos ao começar a fase
@@ -55,6 +57,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func initiate_fury():
+	fury_started.emit()
 	is_raging = true
 	$AnimatedSprite2D.modulate = Color(1,0,0)
 	jumps_for_rage_counter = 0 # Reseta a contagem
@@ -66,6 +69,7 @@ func initiate_fury():
 	print("FÚRIA!")
 	
 func _on_rage_timer_timeout ():
+	fury_ended.emit()
 	is_raging = false
 	$AnimatedSprite2D.modulate = Color(1,1,1)
 	if rage_bar:

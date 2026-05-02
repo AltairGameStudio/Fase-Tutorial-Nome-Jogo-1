@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://mqxt1qsvmfj2"]
+
+[ext_resource type="Script" uid="uid://bqun81ptdbmok" path="res://scenes/death_screen.gd" id="1_wfw3d"]
+[ext_resource type="Texture2D" uid="uid://d1s22w41xdwt0" path="res://assets/Basic_GUI_Bundle/BoxesBanners/Box_Orange_Rounded.png" id="2_enw0n"]
+[ext_resource type="Texture2D" uid="uid://ebeiqmvycpn3" path="res://assets/Basic_GUI_Bundle/BoxesBanners/Banner_Orange.png" id="3_6koal"]
+[ext_resource type="Texture2D" uid="uid://c7h85ojap3npk" path="res://assets/Basic_GUI_Bundle/ButtonsText/PremadeButtons_Resume.png" id="4_wtkkp"]
+[ext_resource type="Texture2D" uid="uid://dy3bxv0qweylk" path="res://assets/Basic_GUI_Bundle/ButtonsText/PremadeButtons_Options.png" id="5_wraau"]
+[ext_resource type="Texture2D" uid="uid://bvswec3v42gq1" path="res://assets/Basic_GUI_Bundle/ButtonsText/PremadeButtons_ExitOrange.png" id="6_vyrcq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vcvlw"]
+load_path = "res://.godot/imported/PremadeButtons_ExitOrange.png-2b2ca30267ebd0dc0ef00b0e090346b2.ctex"
+
+[node name="DeathScreen" type="Control" unique_id=1042650963]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wfw3d")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=1132218761]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = -440.0
+offset_right = 1048.0
+offset_bottom = 1070.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_enw0n")
+
+[node name="Titulo" type="TextureRect" parent="Fundo" unique_id=1521838310]
+layout_mode = 0
+offset_left = 291.66666
+offset_top = -174.99998
+offset_right = 1430.6666
+offset_bottom = 282.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_6koal")
+
+[node name="Label" type="Label" parent="Fundo/Titulo" unique_id=347841774]
+layout_mode = 0
+offset_left = 149.99998
+offset_top = 95.83331
+offset_right = 1076.0
+offset_bottom = 508.8333
+theme_override_font_sizes/font_size = 150
+text = "Você Morreu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Fundo/Titulo" unique_id=81398905]
+layout_mode = 0
+offset_left = 81.25
+offset_top = 604.1666
+offset_right = 581.25
+offset_bottom = 1094.1666
+scale = Vector2(2, 2)
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Control" type="Control" parent="Fundo/Titulo/VBoxContainer" unique_id=1522939650]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+
+[node name="Start" type="TouchScreenButton" parent="Fundo/Titulo/VBoxContainer/Control" unique_id=1458301803]
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_wtkkp")
+
+[node name="Control2" type="Control" parent="Fundo/Titulo/VBoxContainer" unique_id=308888346]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+
+[node name="Config" type="TouchScreenButton" parent="Fundo/Titulo/VBoxContainer/Control2" unique_id=1192503384]
+position = Vector2(0, -4)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_wraau")
+
+[node name="Control3" type="Control" parent="Fundo/Titulo/VBoxContainer" unique_id=313155014]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+
+[node name="Exit" type="TouchScreenButton" parent="Fundo/Titulo/VBoxContainer/Control3" unique_id=154096]
+position = Vector2(0, -8)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_vyrcq")
+texture_pressed = SubResource("CompressedTexture2D_vcvlw")
+
+[connection signal="released" from="Fundo/Titulo/VBoxContainer/Control/Start" to="." method="_on_resume_released"]
+[connection signal="released" from="Fundo/Titulo/VBoxContainer/Control2/Config" to="." method="_on_config_released"]
+[connection signal="released" from="Fundo/Titulo/VBoxContainer/Control3/Exit" to="." method="_on_exit_released"]

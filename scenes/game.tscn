@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c6h5bssn6b6gp"]
 
 [ext_resource type="PackedScene" uid="uid://wxpr30d4turf" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="Script" uid="uid://c8dci5ujwr17f" path="res://scenes/game.gd" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://c6n62tee13iu8" path="res://scenes/ui.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://bxnehywecx5r3" path="res://scenes/level.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://c8dci5ujwr17f" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://c6n62tee13iu8" path="res://scenes/status.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bxnehywecx5r3" path="res://scenes/levels/level.tscn" id="5_iywne"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 
