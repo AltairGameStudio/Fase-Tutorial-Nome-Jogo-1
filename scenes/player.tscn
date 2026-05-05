@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dbweos8jkwbbm" path="res://assets/Clucking Chicken/CluckingChicken.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bfkwiemqchjt4" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://dplb3j5wd4nut" path="res://scenes/fundo.png" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqjtg"]
 atlas = ExtResource("1_3vyb7")
@@ -64,6 +65,13 @@ offset_top = 15.0
 offset_right = 240.0
 offset_bottom = 48.0
 theme_override_colors/font_color = Color(0.74869895, 0.2015599, 0.25128156, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer" unique_id=898207252]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/CanvasLayer" unique_id=2101175014]
+position = Vector2(359, 639)
+texture = ExtResource("3_qhqgy")
 
 [node name="RageTimer" type="Timer" parent="." unique_id=795837553]
 one_shot = true

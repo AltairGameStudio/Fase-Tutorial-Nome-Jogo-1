@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6lu0xqkjadmp"]
 
 [ext_resource type="Script" uid="uid://cqaemkubloeno" path="res://scripts/obstacle.gd" id="1_7ukg5"]
-[ext_resource type="Texture2D" uid="uid://ostxugskl5p3" path="res://icon.svg" id="2_drdry"]
+[ext_resource type="Texture2D" uid="uid://c01manimayo1a" path="res://scenes/Tubo.png" id="2_drdry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ukg5"]
 size = Vector2(111.75, 454.25)
@@ -15,8 +15,8 @@ shape = SubResource("RectangleShape2D_7ukg5")
 debug_color = Color(1, 0.02823884, 0.034919243, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2021750560]
-position = Vector2(4.9999995, 2.9999695)
-scale = Vector2(0.846, 3.6)
+position = Vector2(-2.9999995, 6.9999995)
+scale = Vector2(0.8190142, 1.5335977)
 texture = ExtResource("2_drdry")
 centered = false
 
